@@ -17,6 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
             text-align: center;
@@ -24,6 +25,19 @@
         #landing-page h1 {
             font-size: 3em;
             color: #fff;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin-top: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         #portfolio {
             display: none;
@@ -36,6 +50,9 @@
             padding: 1em 2em;
             background-color: #000;
             border-bottom: 2px solid #0ff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         header h1 {
             margin: 0;
@@ -44,12 +61,13 @@
         }
         nav a {
             margin: 0 1em;
-            color: #0ff;
+            color: #fff;
             text-decoration: none;
             font-weight: bold;
+            transition: text-shadow 0.3s ease;
         }
         nav a:hover {
-            color: #fff;
+            text-shadow: 0 0 10px #0ff;
         }
         section {
             margin: 2em 0;
@@ -69,18 +87,14 @@
             padding: 0.5em;
             border-radius: 4px;
         }
-        a.button {
-            display: inline-block;
-            padding: 0.7em 1.5em;
-            margin-top: 1em;
-            background-color: #0ff;
-            color: #000;
+        a.button, .info-link {
+            color: #fff;
             text-decoration: none;
             border-radius: 4px;
-            transition: background-color 0.3s ease;
+            transition: text-shadow 0.3s ease;
         }
-        a.button:hover {
-            background-color: #fff;
+        a.button:hover, .info-link:hover {
+            text-shadow: 0 0 10px #0ff;
         }
         footer {
             text-align: center;
@@ -121,7 +135,7 @@
             color: #000;
         }
         .light-mode nav a:hover {
-            color: #0ff;
+            text-shadow: 0 0 10px #0ff;
         }
         .light-mode section h2 {
             color: #000;
@@ -130,12 +144,11 @@
         .light-mode ul li {
             background: #f0f0f0;
         }
-        .light-mode a.button {
-            background-color: #000;
-            color: #fff;
+        .light-mode a.button, .light-mode .info-link {
+            color: #000;
         }
-        .light-mode a.button:hover {
-            background-color: #0ff;
+        .light-mode a.button:hover, .light-mode .info-link:hover {
+            text-shadow: 0 0 10px #0ff;
         }
         .light-mode footer {
             background-color: #fff;
@@ -147,6 +160,11 @@
 
     <div id="landing-page">
         <h1>Welcome to My Portfolio</h1>
+        <div class="loader"></div>
+        <audio id="bg-music" loop>
+            <source src="path/to/your-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 
     <div id="portfolio">
@@ -229,11 +247,11 @@
 
         <section id="contact">
             <h2>Contact</h2>
-            <p>Email: ratulsaha324@gmail.com</p>
-            <p>Phone: +91 7047225121</p>
-            <p>GitHub: <a href="https://github.com/ratulsaha-dev" target="_blank">github.com/ratulsaha-dev</a></p>
-            <p>Portfolio: <a href="https://ratulsaha-dev.github.io" target="_blank">ratulsaha-dev.github.io</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/ratulsaha1" target="_blank">linkedin.com/ratulsaha1</a></p>
+            <p>Email: ratulsaha324@gmail.com <a class="info-link" href="mailto:ratulsaha324@gmail.com">(click here)</a></p>
+            <p>Phone: +91 70472 25121<a class="info-link" href="tel:+917047225121"> (click here) </a></p>
+            <p>GitHub: github.com/ratulsaha-dev <a class="info-link" href="https://github.com/ratulsaha-dev" target="_blank">(click here)</a></p>
+            <p>Portfolio: ratulsaha-dev.github.io <a class="info-link" href="https://ratulsaha-dev.github.io" target="_blank">(click here)</a></p>
+            <p>LinkedIn: linkedin.com/ratulsaha1 <a class="info-link" href="https://linkedin.com/in/ratulsaha1" target="_blank">(click here)</a></p>
         </section>
 
         <section id="skills">
@@ -250,7 +268,7 @@
             </ul>
             <p><strong>Tools and Platforms:</strong></p>
             <ul>
-                <li>Eclipse, IntelliJ Idea, VS Code, Anaconda, Power BI, Maven, Microsoft Excel, Advance Excel, PowerPoint, OneDrive, Git, GitHub, Oracle, MySQL, Windows, Linux</li>
+                <li>Eclipse, IntelliJ Idea, VS Code, Anaconda, Power BI, Maven, Microsoft Excel, Advanced Excel, PowerPoint, OneDrive, Git, GitHub, Oracle, MySQL, Windows, Linux</li>
             </ul>
             <p><strong>Methodologies:</strong></p>
             <ul>
@@ -291,6 +309,7 @@
             setTimeout(() => {
                 document.getElementById('landing-page').style.display = 'none';
                 document.getElementById('portfolio').style.display = 'block';
+                document.getElementById('bg-music').play();
             }, 3000); // Auto enter after 3 seconds
         });
 
@@ -308,3 +327,5 @@
 
 </body>
 </html>
+
+               
