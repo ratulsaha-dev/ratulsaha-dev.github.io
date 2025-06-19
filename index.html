@@ -12,8 +12,8 @@
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f1f5f9;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -23,41 +23,31 @@
       padding: 20px;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-top: 20px;
     }
     p {
       font-size: 1.2rem;
       margin: 10px 0 30px;
+      color: #e2e8f0;
     }
-    .gif-container {
-      max-width: 400px;
-      margin-bottom: 30px;
+    .gif-container img {
+      width: 320px;
+      max-width: 90vw;
     }
     .credit {
-      font-size: 0.8rem;
-      color: #94a3b8;
+      font-size: 0.9rem;
+      color: #cbd5e1;
       margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <div class="gif-container">
-    <img src="https://assets9.lottiefiles.com/packages/lf20_jzv1zzsm.json" alt="Maintenance Animation" id="lottie" />
+    <img src="https://media.giphy.com/media/UqZzq7n2CyfRu/giphy.gif" alt="Under Maintenance GIF">
   </div>
   <h1>Website Under Maintenance</h1>
-  <p>I'm currently working on some improvements. Please check back soon!</p>
+  <p>I’m working on something awesome! Please check back soon.</p>
   <div class="credit">© 2025 Ratul Saha. All rights reserved.</div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
-  <script>
-    const animation = lottie.loadAnimation({
-      container: document.getElementById('lottie'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'https://assets9.lottiefiles.com/packages/lf20_jzv1zzsm.json'
-    });
-  </script>
 </body>
 </html>
